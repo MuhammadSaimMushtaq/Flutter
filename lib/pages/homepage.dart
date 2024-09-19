@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:coinapp/models/http_serice.dart';
+import 'package:coinapp/pages/selectcurrency.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -119,14 +120,24 @@ class _HomepageState extends State<Homepage> {
 
 
   Widget showpicture(url){
-    return Container(
-      height: _deviceheight! * 0.15,
-      width: _devicewidth! * 0.15,
-      decoration:BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(url),
+    return GestureDetector(
+      onDoubleTap: (){
+        Navigator.push(
+          context, MaterialPageRoute(
+            builder:(BuildContext context){
+              return currencyselection();
+            })
+            );
+      },
+      child: Container(
+        height: _deviceheight! * 0.15,
+        width: _devicewidth! * 0.15,
+        decoration:BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(url),
+            )
           )
-        )
+      ),
     );
   }
 
