@@ -11,7 +11,9 @@ class _currencyselectionState extends State<currencyselection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+      ),
     );
   }
 }
