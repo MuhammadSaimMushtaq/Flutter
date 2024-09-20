@@ -19,7 +19,7 @@ class currencyselection extends StatelessWidget {
               title: Text(exchangerates.keys.toList()[index]),
               subtitle: Text(exchangerates.values.toList()[index].toString()),
               onTap: (){
-                Navigator.pop(context);
+                Navigator.pop(context,exchangerates.keys.toList()[index]);
               },
             );
           })

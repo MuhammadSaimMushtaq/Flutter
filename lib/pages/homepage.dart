@@ -18,6 +18,7 @@ class _HomepageState extends State<Homepage> {
   String _selected='bitcoin';
   double? _deviceheight;
   double? _devicewidth;
+  String _selectedcurrency='USD';
   Map? _rates;
 
   @override
@@ -77,8 +78,8 @@ class _HomepageState extends State<Homepage> {
       if(snapshot.hasData){
         Map _data =jsonDecode(snapshot.data.toString());
         
-        String _currentPrice=_data["market_data"]['current_price']['usd'].toString();
-        String _change=_data["market_data"]['price_change_percentage_24h_in_currency']['usd'].toString();
+        String _currentPrice=_data["market_data"]['current_price'][_selectedcurrency.toLowerCase()].toString();
+        String _change=_data["market_data"]['price_change_percentage_24h_in_currency'][_selectedcurrency.toLowerCase()].toString();
         String _imageurl=_data['image']['small'].toString();
         String _description=_data['description']['en'].toString();
         _rates=_data['market_data']['current_price'];
@@ -110,7 +111,7 @@ class _HomepageState extends State<Homepage> {
 
   Widget showprice(price){
     return Text(
-      '$price USD',
+      '$price $_selectedcurrency',
       style: const TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.w400,
@@ -123,13 +124,14 @@ class _HomepageState extends State<Homepage> {
 
   Widget showpicture(url){
     return GestureDetector(
-      onDoubleTap: (){
-        Navigator.push(
+      onDoubleTap: ()async{
+        _selectedcurrency= await Navigator.push(
           context, MaterialPageRoute(
             builder:(BuildContext context){
               return currencyselection(exchangerates: _rates!,);
             })
             );
+        setState(() {});
       },
       child: Container(
         height: _deviceheight! * 0.15,
