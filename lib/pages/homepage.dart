@@ -110,6 +110,7 @@ class _HomepageState extends State<Homepage> {
 
 
   Widget showprice(price){
+    _selectedcurrency=_selectedcurrency.toUpperCase();
     return Text(
       '$price $_selectedcurrency',
       style: const TextStyle(

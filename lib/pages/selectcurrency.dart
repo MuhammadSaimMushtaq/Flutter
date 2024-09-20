@@ -16,8 +16,12 @@ class currencyselection extends StatelessWidget {
           BuildContext context, index
           ){
             return ListTile(
-              title: Text(exchangerates.keys.toList()[index]),
-              subtitle: Text(exchangerates.values.toList()[index].toString()),
+              title: Text(
+                exchangerates.keys.toList()[index],
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
               onTap: (){
                 Navigator.pop(context,exchangerates.keys.toList()[index]);
               },
