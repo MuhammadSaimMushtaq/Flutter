@@ -8,6 +8,9 @@ class currencyselection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
         backgroundColor: Colors.deepPurple,
       ),
       body: ListView.builder(

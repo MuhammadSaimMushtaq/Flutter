@@ -58,7 +58,7 @@ class _HomepageState extends State<Homepage> {
         });
       },
       underline: Container(),
-      dropdownColor: Colors.transparent,
+      dropdownColor: const Color.fromARGB(255, 89, 38, 177),
       icon: const Icon(
         Icons.arrow_drop_down,
         color: Colors.white,
@@ -80,7 +80,7 @@ class _HomepageState extends State<Homepage> {
         
         String _currentPrice=_data["market_data"]['current_price'][_selectedcurrency.toLowerCase()].toString();
         String _change=_data["market_data"]['price_change_percentage_24h_in_currency'][_selectedcurrency.toLowerCase()].toString();
-        String _imageurl=_data['image']['small'].toString();
+        String _imageurl=_data['image']['large'].toString();
         String _description=_data['description']['en'].toString();
         _rates=_data['market_data']['current_price'];
         return Column(
@@ -170,7 +170,7 @@ class _HomepageState extends State<Homepage> {
         ),
       height: _deviceheight! * 0.45,
       width: _devicewidth! * 0.9,
-      color: const Color.fromRGBO(83, 88, 206, 0.5),
+      color: Colors.deepPurple,
       child: SingleChildScrollView(
         hitTestBehavior: HitTestBehavior.translucent,
         child: Text(
