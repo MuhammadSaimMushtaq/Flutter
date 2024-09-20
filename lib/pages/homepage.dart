@@ -18,6 +18,7 @@ class _HomepageState extends State<Homepage> {
   String _selected='bitcoin';
   double? _deviceheight;
   double? _devicewidth;
+  Map? _rates;
 
   @override
   void initState() {
@@ -80,6 +81,7 @@ class _HomepageState extends State<Homepage> {
         String _change=_data["market_data"]['price_change_percentage_24h_in_currency']['usd'].toString();
         String _imageurl=_data['image']['small'].toString();
         String _description=_data['description']['en'].toString();
+        _rates=_data['market_data']['current_price'];
         return Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -125,7 +127,7 @@ class _HomepageState extends State<Homepage> {
         Navigator.push(
           context, MaterialPageRoute(
             builder:(BuildContext context){
-              return currencyselection();
+              return currencyselection(exchangerates: _rates!,);
             })
             );
       },
