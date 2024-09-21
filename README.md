@@ -1,15 +1,14 @@
 # coinapp
 
-A new Flutter project.
+A Flutter project that displays realtime prices  of different cryptocurrencies.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+You can clone this repo and run "flutter pub dev" to get all of its dependencies.
 
 A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+If you need to install app on android you can go to path "/build/app/outputs/flutter-apk" and find app-release.apk file which can be installed on android.
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
